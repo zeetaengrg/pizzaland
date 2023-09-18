@@ -1,0 +1,46 @@
+@use "@/styles/abstracts"as a;
+
+.container {
+  padding: 0rem 15rem;
+  text-align: center;
+
+  .title {
+    font-size: a.$small-fs;
+    font-weight: a.$bold-fw;
+    text-transform: uppercase;
+    color: a.$primary-clr-5;
+  }
+
+  .subtitle {
+    @include a.header;
+  }
+
+  .desc {
+    font-size: a.$regular-fs;
+    color: a.$secondary-clr-3;
+  }
+}
+
+//********MEDIA QUERY********
+
+// Media Query for large devices (less than 1024px)
+@include a.media-query(large) {
+  .container {
+    padding: 1em;
+  }
+}
+
+// Media Query for small devices (less than 480px)
+@include a.media-query(small) {
+  .container {
+    padding: 0rem 1rem 1rem;
+
+    .subtitle {
+      font-size: 2rem;
+    }
+
+    .desc {
+      font-size: 1rem;
+    }
+  }
+}

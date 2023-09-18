@@ -1,0 +1,82 @@
+@use "@/styles/abstracts"as a;
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem 25rem;
+
+    .card {
+      display: flex;
+      align-items: center;
+
+      .img {
+        flex: 0.5;
+        display: grid;
+        place-items: center;
+      }
+
+      .text {
+        flex: 1.1;
+
+        p {
+          color: a.$secondary-clr-2;
+        }
+      }
+    }
+  }
+}
+
+//********MEDIA QUERY********
+
+// Media Query for large devices (less than 1024px)
+@include a.media-query(large) {
+  .container {
+    height: 52vh;
+    padding: 0rem 2rem;
+
+    .about {
+      padding: 0rem 15rem;
+
+      .card {
+        gap: 1rem;
+      }
+    }
+  }
+}
+
+// Media Query for medium devices (less than 768px)
+@include a.media-query(medium) {
+  .container {
+    height: 60vh;
+
+    .about {
+      padding: 0rem 10rem;
+    }
+  }
+}
+
+// Media Query for small devices (less than 480px)
+@include a.media-query(small) {
+  .container {
+    height: 95vh;
+
+    .about {
+      padding: 0rem;
+
+      &__wrapper {
+        .card {
+          align-items: flex-start;
+          gap: 1rem;
+        }
+      }
+    }
+  }
+}
