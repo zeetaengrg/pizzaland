@@ -1,0 +1,112 @@
+@use "@/styles/abstracts"as a;
+
+.container {
+  @include a.flex-direction-column;
+  max-width: 15rem;
+
+  .wrapper__img {
+    position: relative;
+    transition: opacity 0.35s ease;
+
+    &>span {
+      filter: drop-shadow(0 2rem 0.8rem rgba($color: a.$primary-clr-1, $alpha: 0.5));
+    }
+
+    &:hover {
+      opacity: 0.8;
+
+      .overlap {
+        opacity: 1;
+        transition: a.$transition-ease;
+
+        &:hover {
+          color: a.$primary-clr;
+          background-color: a.$primary-clr-4;
+        }
+      }
+    }
+
+    .overlap {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-items: center;
+      z-index: 2;
+      padding: 0.5rem;
+      background-color: a.$primary-clr;
+      border: 1px solid a.$primary-clr-1;
+      transition: a.$transition-ease;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+
+  .info {
+    @include a.flex-direction-column;
+    gap: 0.3rem;
+    padding: 1rem;
+    border-radius: 48% 52% 10% 10% / 26% 25% 10% 10%;
+    box-shadow: a.$primary-box-shadow;
+    user-select: none;
+
+    &__reviews {
+      color: a.$secondary-clr-3;
+    }
+
+    &__text {
+      text-align: left;
+
+      h3 {
+        font-size: 1rem;
+        position: relative;
+
+        &:hover .tooltip {
+          display: block;
+          position: absolute;
+          top: -1.5rem;
+        }
+
+        .tooltip {
+          display: none;
+          background-color: grey;
+          color: whitesmoke;
+          padding: 0rem 0.5rem;
+          border-radius: 0.25rem;
+          font-size: 0.9rem;
+          font-weight: 600;
+        }
+      }
+
+      .desc {
+        font-size: a.$small-fs;
+        color: a.$secondary-clr-3;
+      }
+    }
+
+    &__bottom {
+      margin-top: 0.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .price {
+        font-weight: a.$regular-fw;
+        color: a.$primary-clr-5;
+      }
+    }
+  }
+}
+
+//********MEDIA QUERY********
+
+// Media Query for medium deviees (less than 768px)
+@include a.media-query(medium) {
+  .container {
+    .info {
+      padding: 1rem 0.6rem;
+    }
+  }
+}

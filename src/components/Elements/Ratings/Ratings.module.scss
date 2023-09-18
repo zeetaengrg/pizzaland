@@ -1,0 +1,9 @@
+@use "@/styles/abstracts"as a;
+
+.container {
+  .star {
+    font-size: 1.3rem;
+    color: a.$primary-clr-4;
+    cursor: pointer;
+  }
+}
