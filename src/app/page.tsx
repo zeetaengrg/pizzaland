@@ -1,4 +1,11 @@
-import { About, Hero, Popular } from "@/components/templates";
+import {
+	About,
+	Hero,
+	Locations,
+	Newsletter,
+	Popular,
+	Testimonials,
+} from "@/components/templates";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -7,6 +14,9 @@ export default function Home() {
 			<Hero />
 			<About />
 			<Popular />
+			<Locations />
+			<Testimonials />
+			<Newsletter />
 		</main>
 	);
 }
