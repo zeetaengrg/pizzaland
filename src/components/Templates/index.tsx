@@ -6,3 +6,4 @@ export { default as Locations } from "./Locations/Locations";
 export { default as Newsletter } from "./Newsletter/Newsletter";
 export { default as Testimonials } from "./Testimonials/Testimonials";
 export { default as About } from "./About/About";
+export { default as Popular } from "./Popular/Popular";

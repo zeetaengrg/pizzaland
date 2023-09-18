@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./Navbar.module.scss";
 import { FaPhone } from "react-icons/fa";
-import { ActiveLink } from "@/components/Elements";
+import { ActiveLink } from "@/components/elements";
 import {
 	MdAccountCircle,
 	MdOutlineKeyboardArrowDown,

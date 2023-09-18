@@ -5,7 +5,7 @@ import styles from "./Hero.module.scss";
 import { imgSlider } from "@/data/slider-data";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import { useEffect, useState } from "react";
-import { OrderBtn } from "@/components/Elements";
+import { OrderBtn } from "@/components/elements";
 
 const Hero = () => {
 	const [currentSlide, setCurrentSlide] = useState(0);

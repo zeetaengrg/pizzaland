@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { about } from "@/data/about-data";
-import { Header } from "@/components/Elements";
+import { Header } from "@/components/elements";
 import styles from "./About.module.scss";
 
 const About = () => {
