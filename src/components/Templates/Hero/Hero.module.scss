@@ -1,0 +1,184 @@
+@use "@/styles/abstracts"as a;
+
+.container {
+  height: calc(100vh - 5.25rem);
+
+  .top {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+
+    .wrapper {
+      width: 500vw;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      transition: a.$transition-slider;
+
+      .slider {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100%;
+        padding-left: 8rem;
+
+        &__desc {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          line-height: 1;
+          text-transform: uppercase;
+
+          .title {
+            font-size: a.$medium-fs;
+            font-weight: a.$bold-fw;
+            text-transform: uppercase;
+          }
+
+          .subtitle {
+            font-weight: a.$regular-fw;
+            color: a.$secondary-clr-3;
+          }
+        }
+
+        &__img {
+          flex: 2;
+        }
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    .arrow {
+      cursor: pointer;
+      transition: a.$transition-ease;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    .arrow__left,
+    .arrow__right {
+      @include a.arrow;
+      font-size: 1.5rem;
+    }
+
+    .arrow__left {
+      justify-content: end;
+    }
+
+    .arrow__right {
+      justify-content: start;
+    }
+
+    .dot {
+      width: 1.5rem;
+      height: 0.7rem;
+      border-radius: 1rem;
+      background-color: a.$secondary-clr-2;
+      cursor: pointer;
+      transition: a.$transition-ease;
+    }
+
+    .active {
+      background-color: a.$secondary-clr-1;
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 50%;
+    }
+  }
+}
+
+//********MEDIA QUERY********
+
+// Media Query for large devices (less than 1024px)
+@include a.media-query(large) {
+  .container {
+    height: fit-content;
+
+    .top {
+      margin: 8rem 0rem 4rem;
+
+      .wrapper {
+        .slider {
+          padding: 1.5rem 0rem;
+          flex-direction: column-reverse;
+          gap: 3rem;
+
+          &__desc {
+            text-align: center;
+            padding: 0rem 5rem;
+            gap: 4rem;
+
+            .subtitle {
+              padding: 0rem 5rem;
+            }
+          }
+
+          &__img {
+            flex: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media Query for medium devices (less than 768px)
+@include a.media-query(medium) {
+  .container {
+    .top {
+      margin: 2rem 0rem 3rem;
+
+      .wrapper {
+        .slider {
+          &__desc {
+            gap: 2.5rem;
+
+            .title {
+              font-size: 2.5rem;
+            }
+
+            .subtitle {
+              padding: 0rem 5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media Query for small devices (less than 480px)
+@include a.media-query(small) {
+  .container {
+
+    .top {
+      margin: 0rem;
+
+      .wrapper {
+        .slider {
+          &__desc {
+            padding: 0rem 2rem;
+            gap: 1.5rem;
+
+            .title {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
