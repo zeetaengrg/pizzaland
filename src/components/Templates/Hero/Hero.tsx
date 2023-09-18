@@ -58,7 +58,7 @@ const Hero = () => {
 									alt="Pizza"
 									height={550}
 									width={950}
-									objectFit="contain"
+									style={{ objectFit: "contain" }}
 									priority
 								/>
 							</figure>
