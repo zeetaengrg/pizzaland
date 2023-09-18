@@ -1,0 +1,120 @@
+@use "@/styles/abstracts"as a;
+
+.container {
+  background-color: a.$secondary-clr-2;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0rem;
+
+  .announcement__text {
+    color: a.$primary-clr;
+    font-size: a.$small-fs;
+  }
+
+  .btn {
+    color: a.$primary-clr;
+    background-color: transparent;
+    border: 1px solid a.$primary-clr;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    &:hover {
+      background-color: a.$primary-clr;
+      color: a.$secondary-clr-2;
+      text-decoration: none;
+      padding: 0.25rem;
+    }
+  }
+
+  .modal__container {
+    background-color: rgba($color: a.$secondary-clr-2, $alpha: 0.4);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+
+    .modal {
+      margin: auto;
+      max-width: 40rem;
+      background-color: a.$secondary-clr-3;
+      border-radius: 0.5rem;
+      position: relative;
+      padding: 1.5rem 3rem;
+
+      .conditions {
+        .header {
+          h1 {
+            text-align: center;
+            color: a.$primary-clr-4;
+            text-decoration: underline;
+            font-size: 1.25rem;
+          }
+        }
+
+        ul {
+          list-style-type: decimal;
+          padding: 0.25rem 0rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+
+          li {
+            font-size: a.$small-fs;
+            color: a.$primary-clr;
+          }
+        }
+      }
+
+      .btn__close {
+        border: none;
+        background-color: transparent;
+        gap: 0.5rem;
+        padding: 0.25rem;
+        cursor: pointer;
+        margin: 1rem 0rem 0rem;
+        position: absolute;
+        top: -1rem;
+        right: 0rem;
+
+        .icon__close {
+          color: a.$primary-clr;
+          font-size: 1.5rem;
+          transition: all 0.3s ease;
+
+          &:hover {
+            color: a.$primary-clr-4;
+          }
+        }
+      }
+    }
+  }
+}
+
+//********MEDIA QUERY********
+
+// Media Query for small devices (less than 480px)
+@include a.media-query(small) {
+  .container {
+    padding: 0.5rem;
+
+    .announcement__text {
+      font-size: a.$very-small-fs;
+    }
+
+    .modal__container {
+      .modal {
+        width: 25rem;
+      }
+    }
+  }
+}
