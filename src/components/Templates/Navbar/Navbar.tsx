@@ -1,29 +1,13 @@
-import React from "react";
+import Link from "next/link";
 import styles from "./Navbar.module.scss";
 import { FaPhone } from "react-icons/fa";
 import { ActiveLink } from "@/components/Elements";
-import Link from "next/link";
 import {
 	MdAccountCircle,
 	MdOutlineKeyboardArrowDown,
 	MdOutlineShoppingCart,
 } from "react-icons/md";
-
-type LinksType = {
-	id: number;
-	url: string;
-	title: string;
-};
-
-const leftLinks: LinksType[] = [
-	{ id: 1, url: "/", title: "Home" },
-	{ id: 2, url: "/menu", title: "Menu" },
-];
-
-const rightLinks: LinksType[] = [
-	{ id: 1, url: "/#locations", title: "Locations" },
-	{ id: 2, url: "/contact-us", title: "Contact Us" },
-];
+import { LinksType, leftLinks, rightLinks } from "@/data/nav-data";
 
 const Navbar = () => {
 	return (
