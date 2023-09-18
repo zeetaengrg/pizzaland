@@ -7,7 +7,7 @@ import {
 	MdOutlineKeyboardArrowDown,
 	MdOutlineShoppingCart,
 } from "react-icons/md";
-import { LinksType, leftLinks, rightLinks } from "@/data/nav-data";
+import { leftLinks, rightLinks } from "@/data/nav-data";
 
 const Navbar = () => {
 	return (
@@ -24,7 +24,7 @@ const Navbar = () => {
 			<nav className={styles.center} aria-label="primary-navigation">
 				{/* LEFT SIDE LINKS */}
 				<ul>
-					{leftLinks.map((link: LinksType) => (
+					{leftLinks.map((link) => (
 						<li key={link.id}>
 							<ActiveLink url={link.url} title={link.title} />
 						</li>
@@ -38,7 +38,7 @@ const Navbar = () => {
 				</ul>
 				{/* RIGHT SIDE LINKS */}
 				<ul>
-					{rightLinks.map((link: LinksType) => (
+					{rightLinks.map((link) => (
 						<li key={link.id}>
 							<ActiveLink url={link.url} title={link.title} />
 						</li>
