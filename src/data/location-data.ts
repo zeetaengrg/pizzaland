@@ -1,11 +1,3 @@
-export type LocationType = {
-	id: number;
-	street: string;
-	city: string;
-	phone: string;
-	map: string;
-}[];
-
 export const ourLocation = [
 	{
 		id: 1,

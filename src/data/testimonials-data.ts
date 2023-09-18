@@ -1,10 +1,3 @@
-export type TestimonialsType = {
-	id: number;
-	title: string;
-	img: string;
-	description: string;
-}[];
-
 export const testimonialsData = [
 	{
 		id: 1,

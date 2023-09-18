@@ -1,10 +1,3 @@
-export type AboutType = {
-	id: number;
-	img: string;
-	title: string;
-	description: string;
-}[];
-
 export const about = [
 	{
 		id: 1,

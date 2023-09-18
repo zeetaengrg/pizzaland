@@ -1,10 +1,3 @@
-export type ImgSliderType = {
-	id: number;
-	img: string;
-	title: string;
-	subtitle: string;
-}[];
-
 export const imgSlider = [
 	{
 		id: 1,

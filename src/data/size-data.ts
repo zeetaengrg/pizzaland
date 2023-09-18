@@ -1,11 +1,3 @@
-export type SizeItemsType = {
-	id: number;
-	title: string;
-	image: string;
-	height: string;
-	width: string;
-}[];
-
 export const sizeItems = [
 	{
 		id: 1,
