@@ -1,4 +1,4 @@
-import { About, Hero } from "@/components/Templates";
+import { About, Hero, Popular } from "@/components/templates";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -6,6 +6,7 @@ export default function Home() {
 		<main className={styles.main}>
 			<Hero />
 			<About />
+			<Popular />
 		</main>
 	);
 }
