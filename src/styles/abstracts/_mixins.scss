@@ -1,0 +1,320 @@
+@use "sass:map";
+@use "./fonts"as f;
+@use "./colors"as c;
+@use "./transitions"as t;
+@use "./breakpoints"as b;
+@use "./box-shadows"as s;
+
+// Flex Direction Column
+@mixin flex-direction-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Header Style
+@mixin header {
+  font-size: f.$medium-fs;
+  line-height: 1.2;
+}
+
+// Arrow Style
+@mixin arrow {
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  transition: t.$transition-ease;
+  color: c.$secondary-clr-2;
+}
+
+// Horizontal Rule Style
+@mixin hr {
+  border: none;
+  border-top: 0.1rem solid c.$primary-clr;
+  width: 100%;
+}
+
+// Right Aside Style
+@mixin right-aside {
+  @include flex-direction-column;
+  flex: 1;
+  gap: 1rem;
+  background-color: c.$primary-clr-1;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  width: fit-content;
+  height: fit-content;
+  box-shadow: s.$secondary-box-shadow;
+}
+
+// Order Now Button Style
+@mixin btn {
+  position: relative;
+  transition: t.$transition-ease;
+  border: none;
+  background: none;
+
+  &:hover::before {
+    width: 100%;
+    background-color: c.$primary-clr-1;
+  }
+
+  &:hover svg {
+    transform: translateX(0);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+@mixin btn-before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 3.125rem;
+  background-color: c.$primary-clr-1;
+  width: 2.2rem;
+  height: 2.2rem;
+  transition: all 0.3s ease;
+}
+
+@mixin btn-text {
+  position: relative;
+  font-size: f.$small-fs;
+  text-transform: uppercase;
+  font-weight: f.$bold-fw;
+  letter-spacing: 0.05em;
+  color: c.$primary-clr-3;
+}
+
+@mixin btn-svg {
+  position: relative;
+  top: 0;
+  margin-left: 0.625rem;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: c.$primary-clr-3;
+  stroke-width: 2;
+  transform: translateX(-0.313rem);
+  transition: t.$transition-ease;
+}
+
+// Register & Login Button
+@mixin authentication-btn {
+  @include btn;
+  margin: 0rem auto;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  user-select: none;
+  background-color: c.$primary-clr-1;
+  border-radius: 1rem;
+
+  .text {
+    @include btn-text;
+  }
+
+  svg {
+    @include btn-svg;
+  }
+}
+
+// Register & Login Page Image
+@mixin authentication-image {
+  @include flex-direction-column;
+  gap: 1rem;
+  flex: 1;
+  background-color: c.$primary-clr-1;
+  padding: 2rem;
+
+  p {
+    text-align: center;
+    font-size: f.$regular-fs;
+  }
+}
+
+// Register & Login Page Input
+@mixin authentication-input {
+  border: 1px solid c.$primary-clr-1;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  width: 17rem;
+  outline: none;
+  color: c.$primary-clr-3;
+
+  &::placeholder {
+    color: c.$primary-clr-2;
+  }
+}
+
+// Register & Login Success Page
+@mixin authentication-success {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.5rem;
+
+  h1 {
+    font-size: f.$medium-fs;
+  }
+
+  a {
+    font-size: f.$small-fs;
+    text-decoration: underline
+  }
+}
+
+// Register & Login Page form validation
+@mixin authentication-form-validation {
+  .info__icons {
+    position: absolute;
+    top: 0.25rem;
+    right: 0;
+  }
+
+  .input__field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .instructions {
+    width: 17rem;
+    font-size: 0.6rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    position: relative;
+  }
+
+  .instructions>svg {
+    margin-right: 0.25rem;
+  }
+
+  .offscreen {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .valid {
+    color: limegreen;
+  }
+
+  .invalid {
+    color: red;
+  }
+
+  .error__msg {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Add To Cart Button Style
+@mixin btn-container {
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  font-family: inherit;
+  font-weight: f.$bold-fw;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  color: c.$primary-clr-3;
+  border-radius: 0.5rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6rem -0.6rem c.$primary-clr-1;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+
+  &:hover .icon {
+    width: calc(100% - 0.6rem);
+  }
+
+  &:hover .icon svg {
+    transform: translateX(0.1rem);
+  }
+
+  &:active .icon {
+    transform: scale(0.95);
+  }
+}
+
+@mixin btn-icon {
+  background: c.$primary-clr-3;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.3rem;
+  box-shadow: 0.1rem 0.1rem 0.6rem 0.2rem c.$primary-clr-1;
+  right: 0.3rem;
+  transition: t.$transition-ease;
+}
+
+@mixin btn-icon-svg {
+  transition: t.$transition-ease;
+}
+
+// Cart Page Button Styles
+@mixin cart-btns {
+  @include btn-container;
+  margin: 0 auto;
+  height: 2.5rem;
+
+  .icon {
+    @include btn-icon;
+    height: 2rem;
+    width: 2rem;
+
+    svg {
+      @include btn-icon-svg;
+      width: 1.5rem;
+    }
+  }
+}
+
+// Counter Button Section
+@mixin counter-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: f.$regular-fs;
+
+  .count__btn {
+    cursor: pointer;
+  }
+
+  .count__num {
+    font-size: f.$regular-fs;
+    font-weight: f.$regular-fw;
+    border: 1px solid c.$primary-clr-3;
+    border-radius: 0.4rem;
+    height: 2rem;
+    width: 2rem;
+    display: grid;
+    place-items: center;
+    user-select: none;
+  }
+}
+
+// Media Query
+@mixin media-query($key) {
+  $size: map.get(b.$breakpoints, $key);
+
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
