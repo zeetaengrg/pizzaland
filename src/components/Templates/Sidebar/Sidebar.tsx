@@ -4,22 +4,6 @@ import { ChangeEvent, useState } from "react";
 import styles from "./Sidebar.module.scss";
 import { pizzaList } from "@/data/pizzalist-data";
 
-// type PizzaListType = {
-// 	id: number;
-// 	title: string;
-// 	img: string;
-// 	description: string;
-// 	toppings: {
-// 		id: number;
-// 		text: string;
-// 		price: number;
-// 	}[];
-// 	prices: [number];
-// 	rating: number;
-// 	reviews: number;
-// 	category: string;
-// }[];
-
 const allCategories = [
 	"All",
 	...new Set(pizzaList.map((pizza) => pizza.category)),
@@ -28,6 +12,11 @@ const allCategories = [
 const Sidebar = () => {
 	const [selectedCategory, setSelectedCategory] = useState(allCategories);
 	const [input, setInput] = useState("20");
+	const [searchTerm, setSearchTerm] = useState("");
+
+	const handleSearchTerm = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setSearchTerm(e.target.value);
+	};
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setInput(e.target.value);
@@ -41,8 +30,8 @@ const Sidebar = () => {
 					name="name"
 					type="text"
 					placeholder="Search..."
-					// value={searchTerm}
-					// onChange={(e) => setSearchTerm(e.target.value)}
+					value={searchTerm}
+					onChange={handleSearchTerm}
 				/>
 			</form>
 			<section className={styles.category}>
@@ -60,22 +49,6 @@ const Sidebar = () => {
 							{category}
 						</button>
 					))}
-					{/* {allCategories.sort().map((category) => (
-						<button
-							key={category}
-							className={
-								selectedCategory === category
-									? styles.btn__active
-									: styles.btn__inactive
-							}
-							onClick={() => {
-								filterItemsByCategory(category);
-								setSelectedCategory(category);
-							}}
-						>
-							{category}
-						</button>
-					))} */}
 				</ul>
 			</section>
 			<section className={styles.price}>
@@ -89,10 +62,6 @@ const Sidebar = () => {
 						value={input}
 						min="5"
 						max="20"
-						// onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-						// 	setInput(e.target.value);
-						// 	// filterItemsByPrice(e.target.value);
-						// }}
 						onChange={handleChange}
 					/>
 				</form>
