@@ -8,3 +8,4 @@ export { default as Testimonials } from "./Testimonials/Testimonials";
 export { default as About } from "./About/About";
 export { default as Popular } from "./Popular/Popular";
 export { default as Sidebar } from "./Sidebar/Sidebar";
+export { default as ProductList } from "./ProductList/ProductList";
