@@ -1,6 +1,6 @@
 import { Header } from "@/components/elements";
 import styles from "./MenuPage.module.scss";
-import { Sidebar } from "@/components/templates";
+import { ProductList, Sidebar } from "@/components/templates";
 
 const MenuPage = () => {
 	return (
@@ -12,6 +12,7 @@ const MenuPage = () => {
 			/>
 			<section className={styles.content}>
 				<Sidebar />
+				<ProductList />
 			</section>
 		</section>
 	);
