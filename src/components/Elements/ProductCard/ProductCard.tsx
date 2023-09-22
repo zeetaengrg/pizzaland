@@ -12,7 +12,7 @@ type PizzaType = {
 	title: string;
 	img: string;
 	description: string;
-	topppings?: {
+	toppings: {
 		id: number;
 		text: string;
 		price: number;
@@ -28,7 +28,7 @@ const ProductCard = ({
 	title,
 	img,
 	description,
-	topppings,
+	toppings,
 	prices,
 	rating,
 	reviews,
