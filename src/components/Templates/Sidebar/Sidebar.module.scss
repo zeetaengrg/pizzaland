@@ -1,0 +1,208 @@
+@use "@/styles/abstracts"as a;
+
+.sidebar {
+  @include a.flex-direction-column;
+  flex: 0.5;
+  gap: 1rem;
+
+  .search {
+    input {
+      border: none;
+      border-radius: 0.25rem;
+      background-color: a.$primary-clr-1;
+      padding: 0.5rem;
+      color: a.$primary-clr-3;
+      outline: none;
+
+      &::placeholder {
+        color: a.$primary-clr-2;
+      }
+    }
+  }
+
+  .category {
+    @include a.flex-direction-column;
+    gap: 0.5rem;
+
+    ul {
+      @include a.flex-direction-column;
+      gap: 0.5rem;
+      align-items: flex-start;
+
+      .btn__active {
+        border: none;
+        color: a.$secondary-clr-3;
+        background-color: transparent;
+        font-size: 1rem;
+        cursor: pointer;
+        position: relative;
+        transition: a.$transition-ease;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 1.1rem;
+          left: 0;
+          height: 0.1rem;
+          width: 100%;
+          background-color: a.$secondary-clr-2;
+        }
+      }
+
+      .btn__inactive {
+        border: none;
+        background-color: transparent;
+        color: a.$primary-clr-3;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: a.$transition-ease;
+
+        &:hover {
+          color: a.$secondary-clr-3;
+        }
+      }
+    }
+  }
+
+  .price {
+    form {
+      @include a.flex-direction-column;
+      gap: 0.5rem;
+
+      // Input of type Range with custom styles
+      input[type=range] {
+        height: 1rem;
+        -webkit-appearance: none;
+        width: 70%;
+      }
+
+      input[type=range]:focus {
+        outline: none;
+      }
+
+      input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 0.7rem;
+        cursor: pointer;
+        box-shadow: 0px 0px 0px #000000;
+        background-color: a.$primary-clr-1;
+        border-radius: 1rem;
+        border: 1px solid a.$primary-clr-2;
+      }
+
+      input[type=range]::-webkit-slider-thumb {
+        box-shadow: 1px 1px 1px a.$primary-clr-1;
+        border: 1px solid a.$primary-clr-2;
+        height: 1.2rem;
+        width: 2rem;
+        border-radius: 0.3rem;
+        background-color: a.$primary-clr-2;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -5px;
+      }
+
+      input[type=range]:focus::-webkit-slider-runnable-track {
+        background-color: a.$primary-clr-1;
+      }
+
+      input[type=range]::-moz-range-track {
+        width: 100%;
+        height: 0.7rem;
+        cursor: pointer;
+        box-shadow: 0px 0px 0px #000000;
+        background-color: a.$primary-clr-1;
+        border-radius: 1rem;
+        border: 1px solid a.$primary-clr-2;
+      }
+
+      input[type=range]::-moz-range-thumb {
+        box-shadow: 1px 1px 1px a.$primary-clr-1;
+        border: 1px solid a.$primary-clr-2;
+        height: 1.2rem;
+        width: 2rem;
+        border-radius: 0.3rem;
+        background-color: a.$primary-clr-2;
+        cursor: pointer;
+      }
+
+      input[type=range]::-ms-track {
+        width: 100%;
+        height: 1rem;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+      }
+
+      input[type=range]::-ms-fill-lower {
+        background-color: a.$primary-clr-1;
+        border: 1px solid a.$primary-clr-2;
+        border-radius: 2.5rem;
+        box-shadow: 0px 0px 0px #000000;
+      }
+
+      input[type=range]::-ms-fill-upper {
+        background-color: a.$primary-clr-1;
+        border: 1px solid a.$primary-clr-2;
+        border-radius: 2.5rem;
+        box-shadow: 0px 0px 0px #000000;
+      }
+
+      input[type=range]::-ms-thumb {
+        margin-top: 1px;
+        box-shadow: 1px 1px 1px a.$primary-clr-1;
+        border: 1px solid a.$primary-clr-2;
+        height: 1.2rem;
+        width: 2rem;
+        border-radius: 0.3rem;
+        background-color: a.$primary-clr-2;
+        cursor: pointer;
+      }
+
+      input[type=range]:focus::-ms-fill-lower {
+        background-color: a.$primary-clr-1;
+      }
+
+      input[type=range]:focus::-ms-fill-upper {
+        background-color: a.$primary-clr-1;
+      }
+    }
+  }
+}
+
+//********MEDIA QUERY********
+
+// Media Query for small deviees (less than 480px)
+@include a.media-query(small) {
+  .sidebar {
+    text-align: center;
+
+    .search {
+      input {
+        width: 17rem;
+      }
+    }
+
+    .category {
+      ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+
+        .btn {
+          line-height: 0.8;
+        }
+      }
+    }
+
+    .price {
+      @include a.flex-direction-column;
+
+      input {
+        margin: 0 auto;
+      }
+    }
+  }
+}
