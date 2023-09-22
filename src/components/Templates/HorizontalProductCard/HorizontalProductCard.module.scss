@@ -1,0 +1,71 @@
+@use "@/styles/abstracts"as a;
+
+.container {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+
+  .wrapper__img {
+    flex: 1;
+    position: relative;
+    transition: opacity 0.3s ease;
+
+    &>span {
+      filter: drop-shadow(0 2rem 0.8rem rgba($color: a.$primary-clr-1, $alpha: 0.5));
+    }
+  }
+
+  .info {
+    flex: 3;
+    gap: 0.5rem;
+
+    h4 {
+      font-size: a.$regular-fs;
+    }
+
+    .price {
+      font-weight: a.$regular-fw;
+      color: a.$primary-clr-5;
+    }
+
+    .desc_wrapper {
+      margin-top: 0.5rem;
+
+      .info__text {
+        text-decoration: underline;
+        color: a.$secondary-clr-3;
+        background-color: a.$primary-clr-1;
+        padding: 0rem 0.5rem;
+        border-radius: 0.25rem;
+        transition: a.$transition-ease;
+
+        &:hover {
+          color: a.$primary-clr-3;
+        }
+      }
+    }
+
+    .btn__cart {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+  }
+}
+
+// *******MEDIA QUERY********
+
+// Media Query for small deviees (less than 480px)
+@include a.media-query(small) {
+  .container {
+    .info {
+      .btn__cart {
+        flex-direction: column-reverse;
+        align-items: start;
+        gap: 0.5rem;
+      }
+    }
+  }
+}

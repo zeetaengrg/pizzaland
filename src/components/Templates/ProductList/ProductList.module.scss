@@ -1,0 +1,137 @@
+@use "@/styles/abstracts"as a;
+
+.container {
+  @include a.flex-direction-column;
+  gap: 2rem;
+  flex: 3;
+
+  .container__top {
+    display: flex;
+    justify-content: space-between;
+
+    .container__icons {
+      display: flex;
+      gap: 1rem;
+
+      .active {
+        color: a.$secondary-clr;
+        background-color: a.$secondary-clr-2;
+        font-size: 1.8rem;
+        border-radius: 0.2rem;
+        padding: 0.2rem;
+        transition: a.$transition-ease;
+        cursor: pointer;
+      }
+
+      .inactive {
+        border: 1px solid a.$primary-clr-2;
+        border-radius: 0.2rem;
+        padding: 0.2rem;
+        display: grid;
+        place-items: center;
+        font-size: 1.8rem;
+        cursor: pointer;
+        transition: a.$transition-ease;
+      }
+
+
+      p {
+        margin-left: 1rem;
+      }
+    }
+
+    .container__sort {
+      display: flex;
+      gap: 0.5rem;
+
+      select {
+        border-radius: 0.25rem;
+        border: 1px solid a.$primary-clr-2;
+        background-color: a.$primary-clr-1;
+        color: a.$primary-clr-3;
+        padding-left: 0.25rem;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .products__grid {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .products__line {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .products__empty {
+    display: grid;
+    place-items: center;
+    color: a.$primary-clr-3;
+
+    h4 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+//********MEDIA QUERY********
+
+// Media Query for larger devices (less than 1024px)
+@include a.media-query(large) {
+  .container {
+    .products__grid {
+      gap: 2rem;
+    }
+  }
+}
+
+// Media Query for medium deviees (less than 768px)
+@include a.media-query(medium) {
+  .container {
+    .products__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+  }
+}
+
+// Media Query for small devices (less than 480px)
+@include a.media-query(small) {
+  .container {
+    .container__top {
+
+      .container__icons {
+        align-items: center;
+
+        p {
+          margin-left: 0rem;
+          font-size: 0.9rem;
+        }
+      }
+
+      .container__sort {
+        font-size: 0.9rem;
+        align-items: center;
+        gap: 0rem;
+
+        select {
+          height: 2rem;
+          width: 7rem;
+        }
+      }
+    }
+
+    .products__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      padding: 0rem;
+    }
+  }
+}
