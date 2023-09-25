@@ -1,0 +1,140 @@
+@use "@/styles/abstracts"as a;
+
+.container {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 0rem 5rem;
+
+  .wrapper {
+    display: flex;
+    box-shadow: a.$secondary-box-shadow;
+    border-radius: 1rem;
+
+    .success {
+      @include a.authentication-success;
+    }
+
+    .left {
+      @include a.authentication-image;
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+    }
+
+    .right {
+      flex: 2;
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+
+      &__header {
+        padding: 0.5rem 1rem 0rem;
+
+        h1 {
+          font-family: a.$secondary-ff;
+          text-align: right;
+        }
+      }
+
+      hr {
+        border: none;
+        border-bottom: 1px solid a.$primary-clr-1;
+      }
+
+      &__content {
+        display: grid;
+        place-items: center;
+        padding: 2rem 3rem;
+
+        p {
+          margin: 0.5rem 0rem;
+          font-size: a.$small-fs;
+        }
+
+        form {
+          margin-top: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          .forgot {
+            text-align: right;
+            font-size: a.$small-fs;
+          }
+
+          .form__control {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+
+            input {
+              @include a.authentication-input;
+            }
+
+            label {
+              font-size: a.$base-fs;
+              font-weight: a.$medium-fw;
+            }
+
+            @include a.authentication-form-validation;
+          }
+
+          .remember {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            label {
+              font-size: a.$small-fs;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//********MEDIA QUERY********
+
+// Media Query for large devices (less than 1024px)
+@include a.media-query(large) {
+  .container {
+    .wrapper {
+      flex-direction: column-reverse;
+
+      .left {
+        border-top-left-radius: 0rem;
+        border-bottom-right-radius: 1rem;
+      }
+    }
+  }
+}
+
+// Media Query for medium devices (less than 768px)
+@include a.media-query(medium) {
+  .container {
+    padding: 2rem;
+  }
+}
+
+// Media Query for small devices (less than 480px)
+@include a.media-query(small) {
+  .container {
+    padding: 1rem;
+
+    .wrapper {
+      .right {
+        &__content {
+          padding: 1rem;
+
+          form {
+            .form__control {
+              input {
+                width: 15rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
