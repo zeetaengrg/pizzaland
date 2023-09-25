@@ -3,7 +3,7 @@ import styles from "./Header.module.scss";
 type HeaderType = {
 	title: string;
 	subtitle: string;
-	description: string;
+	description?: string;
 };
 
 const Header = ({ title, subtitle, description }: HeaderType) => {
