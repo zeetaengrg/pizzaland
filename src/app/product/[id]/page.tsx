@@ -15,6 +15,7 @@ const ProductPage = () => {
 	const [quantity, setQuantity] = useState(1);
 	const [price, setPrice] = useState(singleProduct.prices[0]);
 	const [size, setSize] = useState(0);
+	const [extraToppings, setExtraToppings] = useState([]);
 
 	const handleAdd = () => {
 		setQuantity(quantity + 1);
@@ -37,6 +38,23 @@ const ProductPage = () => {
 			singleProduct.prices[sizeIndex] - singleProduct.prices[size];
 		setSize(sizeIndex);
 		handlePrice(difference);
+	};
+
+	const handleChange = (
+		e: React.ChangeEvent<HTMLInputElement>,
+		topping: { id: number; text: string; price: number }
+	) => {
+		const checked = e.target.checked;
+
+		if (checked) {
+			handlePrice(topping.price);
+			setExtraToppings((prev) => [...prev, topping]);
+		} else {
+			handlePrice(-topping.price);
+			setExtraToppings(
+				extraToppings.filter((extra) => extra.id !== topping.id)
+			);
+		}
 	};
 
 	return (
@@ -102,7 +120,7 @@ const ProductPage = () => {
 									type="checkbox"
 									id={topping.text}
 									name={topping.text}
-									// onChange={(e) => handleChange(e, topping)}
+									onChange={(e) => handleChange(e, topping)}
 								/>
 								<span className={styles.checkmark}></span>
 							</label>
